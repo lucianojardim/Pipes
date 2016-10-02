@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor/globals';
 
-export class PipesPage {
+export class CompleteGuideFinalWebpackPage {
   navigateTo() {
     return browser.get('/');
   }

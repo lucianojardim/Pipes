@@ -1,20 +1,12 @@
-<div class="pipes">
-  <h1>Pipes</h1>
-  <h2>Built-in Pipes</h2>
-  <p>{{myValue | uppercase}}</p>
-  <p>{{myDate | date:"MM/dd/yy"}}</p>
-  <p>{{myValue | slice:3:7 | uppercase}}</p>
-  <hr>
-  <h2>Custom Pipe</h2>
-  <input type="text" #input (keyup)="0">
-  <p>{{input.value | double}}</p>
-  <hr>
-  <input type="text" #newItem>
-  <button (click)="values.push(newItem.value)" class="btn btn-primary">Add Item</button>
-  <ul>
-    <li *ngFor="let item of values | filter:'ea'">{{item}}</li>
-  </ul>
-  <hr>
-  <h2>Async Pipe</h2>
-  <p>{{asyncValue | async}}</p>
-</div>
+<label for="username">Username</label>
+<input type="text" id="username" #username>
+<label for="email">E-Mail</label>
+<input type="text" id="email" #email>
+<button (click)="onSubmit(username.value, email.value)">Submit</button>
+<hr>
+<button (click)="onGetData()">Get Data</button>
+<ul>
+  <li *ngFor="let item of items">{{item.username}}</li>
+</ul>
+<hr>
+<p>{{asyncString | async}}</p>

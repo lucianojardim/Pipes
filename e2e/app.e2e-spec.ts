@@ -1,10 +1,10 @@
-import { PipesPage } from './app.po';
+import { CompleteGuideFinalWebpackPage } from './app.po';
 
-describe('pipes App', function() {
-  let page: PipesPage;
+describe('complete-guide-final-webpack App', function() {
+  let page: CompleteGuideFinalWebpackPage;
 
   beforeEach(() => {
-    page = new PipesPage();
+    page = new CompleteGuideFinalWebpackPage();
   });
 
   it('should display message saying app works', () => {

@@ -4,22 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent }   from './app.component';
-import { FilterPipe } from "./filter.pipe";
-import { DoublePipe } from "./double.pipe";
+import { HttpService } from "./http.service";
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DoublePipe,
-    FilterPipe
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

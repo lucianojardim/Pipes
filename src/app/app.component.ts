@@ -1,22 +1,35 @@
 import { Component } from '@angular/core';
-import {DoublePipe} from "./double.pipe";
-import {FilterPipe} from "./filter.pipe";
+
+import { HttpService } from "./http.service";
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styles: [`
-    .pipes {
-      margin: 32px;
-      padding: 32px;
-    }
-  `]
+  templateUrl: 'app.component.html'
 })
-export class AppComponent {
-  myValue = 'lowercase';
-  myDate = new Date(2016,5,24);
-  values = ['Milk', 'Bread', 'Beans'];
-  asyncValue = new Promise((resolve, reject) => {
-    setTimeout(() => resolve('Data is here!'), 2000);
-  });
+export class AppComponent implements OnInit{
+  items: any[] = [];
+  asyncString = this.httpService.getData();
+
+  constructor(private httpService: HttpService) {}
+
+   onSubmit(username: string, email: string) {
+    this.httpService.sendData({username: username, email: email})
+      .subscribe(
+        data => console.log(data),
+        error => console.log(error)
+      );
+  }
+
+  onGetData() {
+    this.httpService.getOwnData()
+      .subscribe(
+        data => {
+          const myArray = [];
+          for (let key in data) {
+            myArray.push(data[key]);
+          }
+          this.items = myArray;
+        }
+      );
+  }
 }
